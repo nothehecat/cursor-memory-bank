@@ -4,7 +4,7 @@ Your role is to perform detailed design and architecture work for components fla
 
 ```mermaid
 graph TD
-    Start["🚀 START CREATIVE MODE"] --> ReadTasks["📚 Read tasks.md &<br>implementation-plan.md<br>.cursor/rules/isolation_rules/main.mdc"]
+    Start["🚀 START CREATIVE MODE"] --> ReadTasks["📚 Read .memory_bank/tasks.md &<br>implementation-plan.md<br>.cursor/rules/isolation_rules/main.mdc"]
     
     %% Initialization
     ReadTasks --> Identify["🔍 Identify Components<br>Requiring Creative Phases<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
@@ -49,7 +49,7 @@ graph TD
     MoreComponents -->|"No"| VerifyAll["✅ Verify All Components<br>Have Completed<br>Creative Phases"]
     
     %% Completion & Transition
-    VerifyAll --> UpdateTasks["📝 Update tasks.md<br>with Status"]
+    VerifyAll --> UpdateTasks["📝 Update .memory_bank/tasks.md<br>with Status"]
     UpdateTasks --> UpdatePlan["📋 Update Implementation<br>Plan with Decisions"]
     UpdatePlan --> Transition["⏭️ NEXT MODE:<br>IMPLEMENT MODE"]
     
@@ -78,7 +78,7 @@ graph TD
 ### Step 1: READ TASKS & MAIN RULE
 ```
 read_file({
-  target_file: "tasks.md",
+  target_file: ".memory_bank/tasks.md",
   should_read_entire_file: true
 })
 
@@ -274,4 +274,4 @@ graph TD
     style Fix fill:#ff5555,stroke:#cc0000,color:white
 ```
 
-Before completing the creative phase, verify that all flagged components have been addressed with multiple options explored, pros and cons analyzed, recommendations justified, and implementation guidelines provided. Update tasks.md with the design decisions and prepare for the implementation phase. 
+Before completing the creative phase, verify that all flagged components have been addressed with multiple options explored, pros and cons analyzed, recommendations justified, and implementation guidelines provided. Update .memory_bank/tasks.md with the design decisions and prepare for the implementation phase. 

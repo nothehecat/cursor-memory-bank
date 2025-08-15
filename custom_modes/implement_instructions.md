@@ -7,7 +7,7 @@ graph TD
     Start["🚀 START BUILD MODE"] --> ReadDocs["📚 Read Reference Documents<br>.cursor/rules/isolation_rules/Core/command-execution.mdc"]
     
     %% Initialization
-    ReadDocs --> CheckLevel{"🧩 Determine<br>Complexity Level<br>from tasks.md"}
+    ReadDocs --> CheckLevel{"🧩 Determine<br>Complexity Level<br>from .memory_bank/tasks.md"}
     
     %% Level 1 Implementation
     CheckLevel -->|"Level 1<br>Quick Bug Fix"| L1Process["🔧 LEVEL 1 PROCESS<br>.cursor/rules/isolation_rules/visual-maps/implement-mode-map.mdc"]
@@ -15,7 +15,7 @@ graph TD
     L1Review --> L1Examine["👁️ Examine<br>Relevant Code"]
     L1Examine --> L1Fix["⚒️ Implement<br>Targeted Fix"]
     L1Fix --> L1Test["✅ Test<br>Fix"]
-    L1Test --> L1Update["📝 Update<br>tasks.md"]
+    L1Test --> L1Update["📝 Update<br>.memory_bank/tasks.md"]
     
     %% Level 2 Implementation
     CheckLevel -->|"Level 2<br>Simple Enhancement"| L2Process["🔨 LEVEL 2 PROCESS<br>.cursor/rules/isolation_rules/visual-maps/implement-mode-map.mdc"]
@@ -23,7 +23,7 @@ graph TD
     L2Review --> L2Examine["👁️ Examine Relevant<br>Code Areas"]
     L2Examine --> L2Implement["⚒️ Implement Changes<br>Sequentially"]
     L2Implement --> L2Test["✅ Test<br>Changes"]
-    L2Test --> L2Update["📝 Update<br>tasks.md"]
+    L2Test --> L2Update["📝 Update<br>.memory_bank/tasks.md"]
     
     %% Level 3-4 Implementation
     CheckLevel -->|"Level 3-4<br>Feature/System"| L34Process["🏗️ LEVEL 3-4 PROCESS<br>.cursor/rules/isolation_rules/visual-maps/implement-mode-map.mdc"]
@@ -39,7 +39,7 @@ graph TD
     
     L34Next1 -->|"No"| L34Integration["🔄 Integration<br>Testing"]
     L34Integration --> L34Document["📝 Document<br>Integration Points"]
-    L34Document --> L34Update["📝 Update<br>tasks.md"]
+    L34Document --> L34Update["📝 Update<br>.memory_bank/tasks.md"]
     
     %% Command Execution
     L1Fix & L2Implement & L34Phase1 --> CommandExec["⚙️ COMMAND EXECUTION<br>.cursor/rules/isolation_rules/Core/command-execution.mdc"]
@@ -50,7 +50,7 @@ graph TD
     
     %% Completion & Transition
     L1Update & L2Update & L34Update --> VerifyComplete["✅ Verify Build<br>Complete"]
-    VerifyComplete --> UpdateTasks["📝 Final Update to<br>tasks.md"]
+    VerifyComplete --> UpdateTasks["📝 Final Update to<br>.memory_bank/tasks.md"]
     UpdateTasks --> Transition["⏭️ NEXT MODE:<br>REFLECT MODE"]
     
     %% Validation Options
@@ -81,7 +81,7 @@ read_file({
 ### Step 2: READ TASKS & IMPLEMENTATION PLAN
 ```
 read_file({
-  target_file: "tasks.md",
+  target_file: ".memory_bank/tasks.md",
   should_read_entire_file: true
 })
 
@@ -100,7 +100,7 @@ read_file({
 ```
 
 ### Step 4: LOAD COMPLEXITY-SPECIFIC IMPLEMENTATION REFERENCES
-Based on complexity level determined from tasks.md, load:
+Based on complexity level determined from .memory_bank/tasks.md, load:
 
 #### For Level 1:
 ```
@@ -227,7 +227,7 @@ graph TD
     V --> T["Changes thoroughly tested?"]
     V --> R["Build meets requirements?"]
     V --> D["Build details documented?"]
-    V --> U["tasks.md updated with status?"]
+    V --> U[".memory_bank/tasks.md updated with status?"]
     
     I & T & R & D & U --> Decision{"All Verified?"}
     Decision -->|"Yes"| Complete["Ready for REFLECT mode"]
@@ -239,4 +239,4 @@ graph TD
     style Fix fill:#ff5555,stroke:#cc0000,color:white
 ```
 
-Before completing the build phase, verify that all build steps have been completed, changes have been thoroughly tested, the build meets all requirements, details have been documented, and tasks.md has been updated with the current status. Once verified, prepare for the reflection phase. 
+Before completing the build phase, verify that all build steps have been completed, changes have been thoroughly tested, the build meets all requirements, details have been documented, and .memory_bank/tasks.md has been updated with the current status. Once verified, prepare for the reflection phase. 

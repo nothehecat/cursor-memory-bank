@@ -6,10 +6,10 @@ Your role is to facilitate the **reflection** on the completed task and then, up
 
 ```mermaid
 graph TD
-    Start["🚀 START REFLECT+ARCHIVE MODE"] --> ReadDocs["📚 Read tasks.md, progress.md<br>.cursor/rules/isolation_rules/main.mdc"]
+    Start["🚀 START REFLECT+ARCHIVE MODE"] --> ReadDocs["📚 Read .memory_bank/tasks.md, .memory_bank/progress.md<br>.cursor/rules/isolation_rules/main.mdc"]
     
     %% Initialization & Default Behavior (Reflection)
-    ReadDocs --> VerifyImplement{"✅ Verify Implementation<br>Complete in tasks.md?"}
+    ReadDocs --> VerifyImplement{"✅ Verify Implementation<br>Complete in .memory_bank/tasks.md?"}
     VerifyImplement -->|"No"| ReturnImplement["⛔ ERROR:<br>Return to IMPLEMENT Mode"]
     VerifyImplement -->|"Yes"| LoadReflectMap["🗺️ Load Reflect Map<br>.cursor/rules/isolation_rules/visual-maps/reflect-mode-map.mdc"]
     LoadReflectMap --> AssessLevelReflect{"🧩 Determine Complexity Level"}
@@ -20,7 +20,7 @@ graph TD
     DocSuccess --> DocChallenges["👎 Document Challenges"]
     DocChallenges --> DocLessons["💡 Document Lessons Learned"]
     DocLessons --> DocImprovements["📈 Document Process/<br>Technical Improvements"]
-    DocImprovements --> UpdateTasksReflect["📝 Update tasks.md<br>with Reflection Status"]
+    DocImprovements --> UpdateTasksReflect["📝 Update .memory_bank/tasks.md<br>with Reflection Status"]
     UpdateTasksReflect --> CreateReflectDoc["📄 Create reflection.md"]
     CreateReflectDoc --> ReflectComplete["🏁 REFLECTION COMPLETE"]
     
@@ -36,9 +36,9 @@ graph TD
     AssessLevelArchive --> LoadLevelArchiveRules["📚 Load Level-Specific<br>Archive Rules"]
     LoadLevelArchiveRules --> ArchiveProcess["📦 EXECUTE ARCHIVING PROCESS"]
     ArchiveProcess --> CreateArchiveDoc["📄 Create Archive Document<br>in docs/archive/"]
-    CreateArchiveDoc --> UpdateTasksArchive["📝 Update tasks.md<br>Marking Task COMPLETE"]
-    UpdateTasksArchive --> UpdateProgressArchive["📈 Update progress.md<br>with Archive Link"]
-    UpdateTasksArchive --> UpdateActiveContext["🔄 Update activeContext.md<br>Reset for Next Task"]
+    CreateArchiveDoc --> UpdateTasksArchive["📝 Update .memory_bank/tasks.md<br>Marking Task COMPLETE"]
+    UpdateTasksArchive --> UpdateProgressArchive["📈 Update .memory_bank/progress.md<br>with Archive Link"]
+    UpdateTasksArchive --> UpdateActiveContext["🔄 Update .memory_bank/active_context.md<br>Reset for Next Task"]
     UpdateActiveContext --> ArchiveComplete["🏁 ARCHIVING COMPLETE"]
     
     %% Exit
@@ -70,12 +70,12 @@ read_file({
 })
 
 read_file({
-  target_file: "tasks.md",
+  target_file: ".memory_bank/tasks.md",
   should_read_entire_file: true
 })
 
 read_file({
-  target_file: "progress.md",
+  target_file: ".memory_bank/progress.md",
   should_read_entire_file: true
 })
 ```
@@ -94,7 +94,7 @@ read_file({
 })
 ```
 
-### Step 3: LOAD COMPLEXITY-SPECIFIC RULES (Based on tasks.md)
+### Step 3: LOAD COMPLEXITY-SPECIFIC RULES (Based on .memory_bank/tasks.md)
 Load the appropriate level-specific rules for both reflection and archiving.  
 Example for Level 2:
 ```
@@ -111,7 +111,7 @@ read_file({
 
 ## DEFAULT BEHAVIOR: REFLECTION
 When this mode is activated, it defaults to the REFLECTION process. Your primary task is to guide the user through reviewing the completed implementation.  
-Goal: Facilitate a structured review, capture key insights in reflection.md, and update tasks.md to reflect completion of the reflection phase.
+Goal: Facilitate a structured review, capture key insights in reflection.md, and update .memory_bank/tasks.md to reflect completion of the reflection phase.
 
 ```mermaid
 graph TD
@@ -120,7 +120,7 @@ graph TD
     Success --> Challenges["👎 Document Challenges"]
     Challenges --> Lessons["💡 Document Lessons Learned"]
     Lessons --> Improvements["📈 Document Process/<br>Technical Improvements"]
-    Improvements --> UpdateTasks["📝 Update tasks.md<br>with Reflection Status"]
+    Improvements --> UpdateTasks["📝 Update .memory_bank/tasks.md<br>with Reflection Status"]
     UpdateTasks --> CreateDoc["📄 Create reflection.md"]
     CreateDoc --> Prompt["💬 Prompt for 'ARCHIVE NOW'"]
 
@@ -143,9 +143,9 @@ Goal: Consolidate final documentation, create the formal archive record in docs/
 graph TD
     ArchiveStart["📦 START ARCHIVING<br>(Triggered by 'ARCHIVE NOW')"] --> Verify["✅ Verify reflection.md<br>is Complete"]
     Verify --> CreateDoc["📄 Create Archive Document<br>in docs/archive/"]
-    CreateDoc --> UpdateTasks["📝 Update tasks.md<br>Mark Task COMPLETE"]
-    UpdateTasks --> UpdateProgress["📈 Update progress.md<br>with Archive Link"]
-    UpdateTasks --> UpdateActive["🔄 Update activeContext.md<br>Reset for Next Task"]
+    CreateDoc --> UpdateTasks["📝 Update .memory_bank/tasks.md<br>Mark Task COMPLETE"]
+    UpdateTasks --> UpdateProgress["📈 Update .memory_bank/progress.md<br>with Archive Link"]
+    UpdateTasks --> UpdateActive["🔄 Update .memory_bank/active_context.md<br>Reset for Next Task"]
     UpdateActive --> Complete["🏁 ARCHIVING COMPLETE"]
 
     style ArchiveStart fill:#4da6ff,stroke:#0066cc,color:white
@@ -166,7 +166,7 @@ graph TD
 - Lessons Learned documented? [YES/NO]
 - Process/Technical Improvements identified? [YES/NO]
 - reflection.md created? [YES/NO]
-- tasks.md updated with reflection status? [YES/NO]
+- .memory_bank/tasks.md updated with reflection status? [YES/NO]
 
 → If all YES: Reflection complete. Prompt user: "Type 'ARCHIVE NOW' to proceed with archiving."  
 → If any NO: Guide user to complete missing reflection elements.
@@ -176,9 +176,9 @@ graph TD
 - Reflection document reviewed? [YES/NO]
 - Archive document created with all sections? [YES/NO]
 - Archive document placed in correct location (docs/archive/)? [YES/NO]
-- tasks.md marked as COMPLETED? [YES/NO]
-- progress.md updated with archive reference? [YES/NO]
-- activeContext.md updated for next task? [YES/NO]
+- .memory_bank/tasks.md marked as COMPLETED? [YES/NO]
+- .memory_bank/progress.md updated with archive reference? [YES/NO]
+- .memory_bank/active_context.md updated for next task? [YES/NO]
 - Creative phase documents archived (Level 3-4)? [YES/NO/NA]  
 
 → If all YES: Archiving complete. Suggest VAN Mode for the next task.  
@@ -193,7 +193,7 @@ Exit: After successful archiving, the system should suggest returning to VAN mod
 - Review completed implementation against the plan.
 - Generate reflection.md based on the review.
 - Upon command ARCHIVE NOW, generate the archive document.
-- Show updates to tasks.md, progress.md, and activeContext.md.
+- Show updates to .memory_bank/tasks.md, .memory_bank/progress.md, and .memory_bank/active_context.md.
 - Demonstrate the final state suggesting VAN mode.
 
 ### VERIFICATION COMMITMENT
@@ -204,7 +204,7 @@ Exit: After successful archiving, the system should suggest returning to VAN mod
 │ starting the ARCHIVING process.                     │
 │ I WILL run all verification checkpoints for both    │
 │ reflection and archiving.                           │
-│ I WILL maintain tasks.md as the single source of    │
+│ I WILL maintain .memory_bank/tasks.md as the single source of    │
 │ truth for final task completion status.             │
 └─────────────────────────────────────────────────────┘
 ```

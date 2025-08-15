@@ -21,14 +21,14 @@ graph TD
     QA --> QAResp["Respond: OK QA"]
     
     %% Memory Bank Check
-    VanResp --> CheckMB_Van["Check Memory Bank<br>& tasks.md Status"]
-    PlanResp --> CheckMB_Plan["Check Memory Bank<br>& tasks.md Status"]
-    CreativeResp --> CheckMB_Creative["Check Memory Bank<br>& tasks.md Status"]
-    ImplResp --> CheckMB_Impl["Check Memory Bank<br>& tasks.md Status"]
-    QAResp --> CheckMB_QA["Check Memory Bank<br>& tasks.md Status"]
+    VanResp --> CheckMB_Van["Check Memory Bank<br>& .memory_bank/tasks.md Status"]
+    PlanResp --> CheckMB_Plan["Check Memory Bank<br>& .memory_bank/tasks.md Status"]
+    CreativeResp --> CheckMB_Creative["Check Memory Bank<br>& .memory_bank/tasks.md Status"]
+    ImplResp --> CheckMB_Impl["Check Memory Bank<br>& .memory_bank/tasks.md Status"]
+    QAResp --> CheckMB_QA["Check Memory Bank<br>& .memory_bank/tasks.md Status"]
     
     %% Rule Loading
-    CheckMB_Van --> LoadVan["Load Rule:<br>isolation_rules/visual-maps/van_mode_split/van-mode-map"]
+    CheckMB_Van --> LoadVan["Load Rule:<br>isolation_rules/visual-maps/van-mode-map"]
     CheckMB_Plan --> LoadPlan["Load Rule:<br>isolation_rules/visual-maps/plan-mode-map"]
     CheckMB_Creative --> LoadCreative["Load Rule:<br>isolation_rules/visual-maps/creative-mode-map"]
     CheckMB_Impl --> LoadImpl["Load Rule:<br>isolation_rules/visual-maps/implement-mode-map"]
@@ -42,11 +42,11 @@ graph TD
     LoadQA --> ExecQA["Execute Process<br>in Rule"]
     
     %% Memory Bank Continuous Updates
-    ExecVan --> UpdateMB_Van["Update Memory Bank<br>& tasks.md"]
-    ExecPlan --> UpdateMB_Plan["Update Memory Bank<br>& tasks.md"]
-    ExecCreative --> UpdateMB_Creative["Update Memory Bank<br>& tasks.md"]
-    ExecImpl --> UpdateMB_Impl["Update Memory Bank<br>& tasks.md"]
-    ExecQA --> UpdateMB_QA["Update Memory Bank<br>& tasks.md"]
+    ExecVan --> UpdateMB_Van["Update Memory Bank<br>& .memory_bank/tasks.md"]
+    ExecPlan --> UpdateMB_Plan["Update Memory Bank<br>& .memory_bank/tasks.md"]
+    ExecCreative --> UpdateMB_Creative["Update Memory Bank<br>& .memory_bank/tasks.md"]
+    ExecImpl --> UpdateMB_Impl["Update Memory Bank<br>& .memory_bank/tasks.md"]
+    ExecQA --> UpdateMB_QA["Update Memory Bank<br>& .memory_bank/tasks.md"]
     
     %% Verification with Memory Bank Checks
     UpdateMB_Van --> VerifyVan{"Process<br>Complete?"}
@@ -96,10 +96,10 @@ graph TD
     FinalMB_Impl --> TransToQA["→ QA Mode"]
     
     %% Memory Bank System
-    MemoryBank["MEMORY BANK<br>CENTRAL SYSTEM"] -.-> tasks["tasks.md<br>Source of Truth"]
+    MemoryBank["MEMORY BANK<br>CENTRAL SYSTEM"] -.-> tasks[".memory_bank/tasks.md<br>Source of Truth"]
     MemoryBank -.-> projBrief["projectbrief.md<br>Foundation"]
-    MemoryBank -.-> active["activeContext.md<br>Current Focus"]
-    MemoryBank -.-> progress["progress.md<br>Implementation Status"]
+    MemoryBank -.-> active[".memory_bank/active_context.md<br>Current Focus"]
+    MemoryBank -.-> progress[".memory_bank/progress.md<br>Implementation Status"]
     
     CheckMB_Van & CheckMB_Plan & CheckMB_Creative & CheckMB_Impl & CheckMB_QA -.-> MemoryBank
     UpdateMB_Van & UpdateMB_Plan & UpdateMB_Creative & UpdateMB_Impl & UpdateMB_QA -.-> MemoryBank
@@ -170,10 +170,10 @@ flowchart TD
     PB --> SP([systemPatterns.md])
     PB --> TC([techContext.md])
     
-    PC & SP & TC --> AC([activeContext.md])
+    PC & SP & TC --> AC([.memory_bank/active_context.md])
     
-    AC --> P([progress.md])
-    AC --> Tasks([tasks.md])
+    AC --> P([.memory_bank/progress.md])
+    AC --> Tasks([.memory_bank/tasks.md])
 
     style PB fill:#f9d77e,stroke:#d9b95c,color:black
     style PC fill:#a8d5ff,stroke:#88b5e0,color:black
@@ -190,7 +190,7 @@ flowchart TD
 ┌─────────────────────────────────────────────────────┐
 │ I WILL follow the appropriate visual process map    │
 │ I WILL run all verification checkpoints             │
-│ I WILL maintain tasks.md as the single source of    │
+│ I WILL maintain .memory_bank/tasks.md as the single source of    │
 │ truth for all task tracking                         │
 └─────────────────────────────────────────────────────┘
 ``` 

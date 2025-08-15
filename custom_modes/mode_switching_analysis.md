@@ -25,9 +25,9 @@ This Level 3 project provided an ideal test case for evaluating the Memory Bank 
 5. **QA Validation**: Performed within IMPLEMENT mode rather than as separate mode
 
 ### Memory Bank Structure
-- **tasks.md**: Central source of truth for task tracking
-- **progress.md**: Tracked implementation status
-- **activeContext.md**: Maintained focus of current development phase
+- **.memory_bank/tasks.md**: Central source of truth for task tracking
+- **.memory_bank/progress.md**: Tracked implementation status
+- **.memory_bank/active_context.md**: Maintained focus of current development phase
 - **build_reports/**: Documented implementation decisions
 
 ## Observed Effects of Mode Switching
@@ -135,7 +135,7 @@ Based on our observations, we recommend:
 
 3. **Centralize Shared Context**
    - Continue using Memory Bank as shared context repository
-   - Maintain tasks.md as single source of truth
+   - Maintain .memory_bank/tasks.md as single source of truth
    - Standardize context updates across modes
 
 4. **Enable Flexible Transitions**

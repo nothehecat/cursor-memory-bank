@@ -4,7 +4,7 @@ Your role is to create a detailed plan for task execution based on the complexit
 
 ```mermaid
 graph TD
-    Start["🚀 START PLANNING"] --> ReadTasks["📚 Read tasks.md<br>.cursor/rules/isolation_rules/main.mdc"]
+    Start["🚀 START PLANNING"] --> ReadTasks["📚 Read .memory_bank/tasks.md<br>.cursor/rules/isolation_rules/main.mdc"]
     
     %% Complexity Level Determination
     ReadTasks --> CheckLevel{"🧩 Determine<br>Complexity Level"}
@@ -17,7 +17,7 @@ graph TD
     L2Review --> L2Document["📄 Document<br>Planned Changes"]
     L2Document --> L2Challenges["⚠️ Identify<br>Challenges"]
     L2Challenges --> L2Checklist["✅ Create Task<br>Checklist"]
-    L2Checklist --> L2Update["📝 Update tasks.md<br>with Plan"]
+    L2Checklist --> L2Update["📝 Update .memory_bank/tasks.md<br>with Plan"]
     L2Update --> L2Verify["✓ Verify Plan<br>Completeness"]
     
     %% Level 3 Planning
@@ -26,7 +26,7 @@ graph TD
     L3Requirements --> L3Components["🧩 Identify Affected<br>Components"]
     L3Components --> L3Plan["📝 Create Comprehensive<br>Implementation Plan"]
     L3Plan --> L3Challenges["⚠️ Document Challenges<br>& Solutions"]
-    L3Challenges --> L3Update["📝 Update tasks.md<br>with Plan"]
+    L3Challenges --> L3Update["📝 Update .memory_bank/tasks.md<br>with Plan"]
     L3Update --> L3Flag["🎨 Flag Components<br>Requiring Creative"]
     L3Flag --> L3Verify["✓ Verify Plan<br>Completeness"]
     
@@ -37,7 +37,7 @@ graph TD
     L4Diagrams --> L4Subsystems["🧩 Identify Affected<br>Subsystems"]
     L4Subsystems --> L4Dependencies["🔄 Document Dependencies<br>& Integration Points"]
     L4Dependencies --> L4Plan["📝 Create Phased<br>Implementation Plan"]
-    L4Plan --> L4Update["📝 Update tasks.md<br>with Plan"]
+    L4Plan --> L4Update["📝 Update .memory_bank/tasks.md<br>with Plan"]
     L4Update --> L4Flag["🎨 Flag Components<br>Requiring Creative"]
     L4Flag --> L4Verify["✓ Verify Plan<br>Completeness"]
     
@@ -77,7 +77,7 @@ read_file({
 })
 
 read_file({
-  target_file: "tasks.md",
+  target_file: ".memory_bank/tasks.md",
   should_read_entire_file: true
 })
 ```
@@ -91,7 +91,7 @@ read_file({
 ```
 
 ### Step 3: LOAD COMPLEXITY-SPECIFIC PLANNING REFERENCES
-Based on complexity level determined from tasks.md, load one of:
+Based on complexity level determined from .memory_bank/tasks.md, load one of:
 
 #### For Level 2:
 ```
@@ -222,4 +222,4 @@ graph TD
     style Fix fill:#ff5555,stroke:#cc0000,color:white
 ```
 
-Before completing the planning phase, verify that all requirements are addressed in the plan, components requiring creative phases are identified, implementation steps are clearly defined, and dependencies and challenges are documented. Update tasks.md with the complete plan and recommend the appropriate next mode based on whether creative phases are required. 
+Before completing the planning phase, verify that all requirements are addressed in the plan, components requiring creative phases are identified, implementation steps are clearly defined, and dependencies and challenges are documented. Update .memory_bank/tasks.md with the complete plan and recommend the appropriate next mode based on whether creative phases are required. 
